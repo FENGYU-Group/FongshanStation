@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鳳山車站 | 永續建築的時空調度</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
+	<style>
+		.logo-text {
+			font-family: 'Inter', sans-serif;
+			/* 增加字距是關鍵，讓文字更有呼吸感 */
+			letter-spacing: 0.4em; 
+			/* 讓最後一個字的字母間距不會推擠到右邊邊界 */
+			margin-right: -0.6em; 
+		}
+	</style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #e2e8f0; }
+        .hero-blur { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+        .section-full { height: 100vh; width: 100%; position: relative; overflow: hidden; }
+        .img-cover { width: 100%; height: 100%; object-fit: cover; }
+    </style>
+	<style>
+		.hero-blur { 
+			/* 讓後方的圖片產生模糊 */
+			backdrop-filter: blur(12px); 
+			-webkit-backdrop-filter: blur(12px); 
+		}
+		.img-cover {
+			width: 100%;
+			height: 100%;
+			object-fit: cover; /* 確保圖片填滿螢幕不變形 */
+		}
+</style>
+</head>
+<body class="overflow-x-hidden">
+
+    <nav class="fixed top-0 w-full z-50 py-10 px-12 flex justify-start items-center bg-transparent">
+		<a href="/" class="group">
+			<span class="logo-text text-xl md:text-2xl font-bold uppercase text-white transition-opacity group-hover:opacity-70">
+				Fengshan Station
+			</span>
+		</a>
+	</nav>
+	
+    <header class="section-full flex items-center justify-center">
+		<img src="images/1.jpeg" class="absolute inset-0 img-cover brightness-[0.8]">
+		
+		<div class="relative z-10 text-center px-4">
+			<div class="w-24 h-[1px] bg-white/50 mx-auto mb-8"></div>
+			<h1 class="text-3xl md:text-5xl font-bold tracking-widest mb-4 drop-shadow-2xl">
+				鳳山車站：在變動中守護日常
+			</h1>
+			<p class="text-sm md:text-lg text-white/80 tracking-[0.2em] uppercase drop-shadow-lg">
+				Invisible Architecture, Visible Continuity
+			</p>
+			<div class="w-24 h-[1px] bg-white/50 mx-auto mt-8"></div>
+		</div>
+	</header>
+
+    <section class="works-gallery">
+        <div class="section-full border-b border-slate-900">
+            <img src="https://via.placeholder.com/1920x1080?text=Fongshan_View_13" class="img-cover">
+            <div class="absolute bottom-10 left-10 text-[10px] tracking-[0.4em] uppercase text-slate-300">View 01 / Platform Structure</div>
+        </div>
+        <div class="section-full border-b border-slate-900">
+            <img src="https://via.placeholder.com/1920x1080?text=Fongshan_View_2" class="img-cover brightness-75">
+            <div class="absolute bottom-10 left-10 text-[10px] tracking-[0.4em] uppercase text-slate-300">View 02 / Surgical Engineering</div>
+        </div>
+    </section>
+
+    <section id="story-trigger" class="relative bg-slate-900 overflow-hidden">
+        <div class="section-full sticky top-0 flex items-center justify-center">
+            <img src="https://via.placeholder.com/1920x1080?text=Fongshan_Final_BKG" class="absolute inset-0 img-cover opacity-30">
+            
+            <img id="aluminum-ticket" src="https://via.placeholder.com/400x600?text=Aluminum_PNG" 
+                 class="relative z-20 w-48 md:w-64 opacity-0 transform -translate-y-[100%] shadow-2xl">
+
+            <div id="story-text" class="absolute z-30 text-center px-10 opacity-0 transform translate-y-10">
+                <h2 class="text-2xl font-light tracking-widest mb-6">永續的建築皮膚</h2>
+                <p class="max-w-md mx-auto text-sm leading-loose text-slate-300">
+                    這張鋁片做的車票，是旅程的起點，也是建築的皮膚。我們在不停歇的日常中無縫編織新空間，利用輕量化回收鋁材，打造如雲朵般的永續頂棚。
+                </p>
+            </div>
+        </div>
+        <div class="h-[200vh]"></div>
+    </section>
+
+    <footer class="py-20 text-center bg-black">
+        <p class="text-[10px] tracking-[0.5em] text-slate-500 uppercase">Fongyu Construction × CASA TAIWAN</p>
+        <p class="text-[10px] tracking-[0.5em] text-slate-600 mt-2">Milan Design Week 2026</p>
+    </footer>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 鋁片掉落與釘選動畫
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#story-trigger",
+                start: "top top",
+                end: "+=150%",
+                scrub: 1,
+                pin: true,
+                markers: false // 開發完成後可改為 false
+            }
+        });
+
+        tl.to("#aluminum-ticket", {
+            y: "0%",
+            opacity: 1,
+            duration: 1
+        })
+        .to("#aluminum-ticket", {
+            scale: 0.8,
+            filter: "brightness(0.5)",
+            duration: 0.5
+        }, "+=0.2")
+        .to("#story-text", {
+            y: 0,
+            opacity: 1,
+            duration: 1
+        }, "-=0.3");
+    </script>
+</body>
+</html>
