@@ -13,30 +13,59 @@
         .logo-text { letter-spacing: 0.4em; margin-right: -0.4em; }
         .section-full { height: 100vh; width: 100%; position: relative; overflow: hidden; }
         .img-cover { width: 100%; height: 100%; object-fit: cover; }
+
+        #final-section {
+        position: relative;
+        }
+
+        #final-ticket-img,
+        #final-bg-overlay,
+        #final-text-left,
+        #final-text-right {
+            will-change: transform, opacity;
+        }
+
+        #final-wall-img {
+            will-change: transform, opacity;
+            transform-origin: center center;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            transform: translateZ(0);
+        }
+
+        @media (max-width: 767px) {
+            #final-ticket-img {
+                max-width: min(82vw, 380px);
+            }
+        }
     </style>
 </head>
 <body class="overflow-x-hidden">
 
     <nav class="fixed top-0 w-full z-50 py-10 px-12 flex justify-start items-center bg-transparent">
-        <span class="logo-text text-xl md:text-2xl font-bold uppercase text-white">Fongshan Station</span>
+        <span class="logo-text text-xl md:text-2xl font-bold uppercase text-white">LIFE GOES ON</span>
     </nav>
     
     <header class="section-full flex items-center justify-center">
         <img src="images/1.jpeg" class="absolute inset-0 img-cover brightness-[0.7]">
         <div class="relative z-10 text-center px-4">
-            <h1 class="text-3xl md:text-5xl font-bold tracking-widest mb-4">鳳山車站：在變動中守護日常</h1>
-            <p class="text-sm md:text-lg text-white/70 tracking-[0.2em] uppercase">Invisible Architecture, Visible Continuity</p>
+            <h1 class="text-3xl md:text-5xl font-bold tracking-widest mb-4">Fongshan Station: Continuity in Motion</h1>
+            <p class="text-sm md:text-lg text-white/70 tracking-[0.2em] uppercase">鳳山車站：在變動中守護日常</p>
         </div>
     </header>
 
 	<section class="section-full flex items-center justify-center bg-slate-900">
-        <img src="./images/7.jpeg" class="absolute inset-0 img-cover opacity-20">
+        <img src="images/7.jpeg" class="absolute inset-0 img-cover opacity-20">
         <div class="relative z-10 max-w-4xl text-center px-10">
-            <h2 class="text-2xl md:text-4xl font-bold tracking-[0.3em] mb-10 uppercase logo-text">空中鳳城</h2>
-            <div class="space-y-6 text-slate-300 leading-loose text-sm md:text-lg">
-                <p>鳳山車站為高雄首座結合停車場及商業大樓的火車站。</p>
-                <p>全新打造的「空中鳳城」以鳳山古城為設計靈感，融合交通、商業與文化。</p>
-            </div>
+        <h2 class="text-2xl md:text-4xl font-bold tracking-[0.3em] mb-10 uppercase logo-text">Sky Phoenix City</h2>
+        <div class="space-y-6 text-slate-300 leading-loose text-sm md:text-lg">
+            <p>
+                Fongshan Station is Kaohsiung’s first railway station to integrate parking facilities with a commercial complex.
+            </p>
+            <p>
+                The newly developed “Sky Phoenix City” draws inspiration from the historic Fongshan Old City, blending transportation, commerce, and cultural identity into a unified space.
+            </p>
+        </div>
             <div class="w-16 h-[1px] bg-white/30 mx-auto mt-12"></div>
         </div>
     </section>
@@ -45,38 +74,106 @@
         <div class="sticky top-0 h-screen w-full flex items-center overflow-hidden">
             <div id="story-gallery-master" class="flex h-full items-center z-10 w-full bg-black">
                 <div id="story-text-content" class="absolute left-0 z-20 w-full md:w-[35vw] px-12 md:px-20 mix-blend-difference">
-                    <h2 class="text-2xl md:text-3xl font-bold tracking-widest mb-6 uppercase logo-text text-white">生活不曾停歇</h2>
+                    <h2 class="text-2xl md:text-3xl font-bold tracking-widest mb-6 uppercase logo-text text-white">Life in Motion</h2>
                     <p class="text-slate-300 leading-loose text-sm md:text-base">
-                        鳳山車站，大樓與月台共生。在建築生長的過程中，我們精準調度，確保每一班列車準點，讓進步成為日常的延伸。
+                        At Fongshan Station, architecture and transit evolve together. As the structure takes shape, every operation is precisely orchestrated to maintain uninterrupted rail service—transforming progress into a seamless continuation of daily life.
                     </p>
                 </div>
 
                 <div id="story-gallery" class="flex items-center pl-[40vw] pr-[20vw] gap-20">
-                    <div class="flex-shrink-0"><img src="./images/2.jpeg" class="w-[75vw] md:w-[50vw] h-[60vh] img-cover rounded"></div>
-                    <div class="flex-shrink-0"><img src="./images/3.jpeg" class="w-[75vw] md:w-[50vw] h-[60vh] img-cover rounded"></div>
-                    <div class="flex-shrink-0"><img src="./images/4.jpeg" class="w-[75vw] md:w-[50vw] h-[60vh] img-cover rounded"></div>
+                    <div class="flex-shrink-0"><img src="images/2.jpeg" class="w-[75vw] md:w-[50vw] h-[60vh] img-cover rounded"></div>
+                    <div class="flex-shrink-0"><img src="images/3.jpeg" class="w-[75vw] md:w-[50vw] h-[60vh] img-cover rounded"></div>
+                    <div class="flex-shrink-0"><img src="images/4.jpeg" class="w-[75vw] md:w-[50vw] h-[60vh] img-cover rounded"></div>
                     <div class="flex-shrink-0 relative">
-                        <img id="final-wall-img" src="./images/5.jpeg" class="w-[75vw] md:w-[50vw] h-[60vh] img-cover rounded shadow-2xl origin-center">
+                        <img id="final-wall-img" src="images/5.jpeg" class="w-[75vw] md:w-[50vw] h-[60vh] img-cover rounded shadow-2xl origin-center will-change-transform backface-hidden">
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <section id="final-section" class="min-h-screen w-full flex items-center justify-center bg-black relative z-30">
-        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            <div id="final-img-box" class="flex justify-center md:justify-end">
-                <img src="./images/6.png" class="w-full max-w-sm md:max-w-md h-auto object-contain">
-            </div>
-            <div id="final-text-box" class="text-left space-y-8">
-                <div class="flex items-center gap-4 opacity-40">
-                    <span class="w-12 h-[1px] bg-white"></span>
-                    <span class="text-xs tracking-[0.5em] uppercase text-white">Continuity</span>
+    <section id="final-section" class="relative z-30 min-h-[180vh] bg-black">
+        <div class="sticky top-0 h-screen overflow-hidden">
+            <!-- 背景圖 -->
+            <div id="final-bg-wrap" class="absolute inset-0">
+                <img id="final-bg-img" src="images/t-3.jpg" class="w-full h-full object-cover">
+                <div id="final-bg-overlay"class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-black/80"></div>
+                <div class="absolute inset-0 pointer-events-none"
+                    style="background: radial-gradient(circle at center, transparent 40%, rgba(0,0,0,0.6) 100%);">
                 </div>
-                <h2 class="text-4xl md:text-5xl font-bold tracking-[0.6em] logo-text text-white">生活的永續</h2>
-                <div class="space-y-6 text-slate-300 text-sm md:text-lg leading-[2.2] tracking-wide font-light max-w-xl">
-                    <p>細節中藏著時間的印記。外牆上這枚刻著車票的鋁片，</p>
-                    <p>不僅是建築的皮膚，更是對這趟永續旅程的永久紀念。</p>
+            </div>
+
+            <!-- 主視覺區 -->
+            <div class="relative z-10 w-full h-full flex items-center justify-center px-6 md:px-12">
+                <div class="relative w-full max-w-[1400px] h-full flex items-center justify-center">
+
+                    <div id="final-text-left"
+                        class="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 w-[22vw] max-w-[300px] text-right">
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center justify-end gap-4 opacity-50">
+                                <span class="text-xs tracking-[0.5em] uppercase text-white">Continuity</span>
+                                <span class="w-12 h-[1px] bg-white"></span>
+                            </div>
+
+                            <!-- 英文 -->
+                            <h2 class="text-3xl lg:text-4xl font-bold tracking-[0.28em] logo-text text-white leading-relaxed">
+                                Continuity of Life
+                            </h2>
+
+                            <!-- 中文 -->
+                            <h3 class="text-base lg:text-lg tracking-[0.25em] text-white/70 font-light">
+                                生活的永續
+                            </h3>
+                        </div>
+                    </div>
+
+                    <div id="final-ticket-wrap" class="relative z-20 w-full flex items-center justify-center mx-auto">
+                        <img id="final-ticket-img"
+                            src="images/6.png"
+                            class="block mx-auto w-[82vw] max-w-[380px] md:max-w-[560px] lg:max-w-[640px] h-auto object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
+
+                        <div class="md:hidden absolute left-4 max-w-[46%]" style="top: 0.05rem;">
+                            <div class="space-y-2">
+                                <h2 class="text-lg font-bold tracking-[0.12em] text-white leading-snug">
+                                    Continuity of Life
+                                </h2>
+                                <h3 class="text-sm text-white/70 tracking-[0.15em]">
+                                    生活的永續
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="md:hidden absolute right-4 bottom-6 text-right max-w-[52%] z-30" style="bottom: 12rem;">
+                        <div class="space-y-2">
+                            <p class="text-sm leading-[1.8] text-white/90 font-light">
+                                Traces of time are hidden in the details. The engraved ticket becomes a lasting memory of the journey.
+                            </p>
+                            <p class="text-xs leading-[1.7] text-white/75 font-light">
+                                細節中藏著時間的印記，
+                                這枚刻著車票的鋁片，
+                                是旅程的永久紀念。
+                            </p>
+                        </div>
+                    </div>
+
+                    <div id="final-text-right"
+                        class="hidden md:block absolute right-[4vw] top-1/2 -translate-y-1/2 w-[20vw] max-w-[320px] text-left">
+                        <div class="space-y-5">
+
+                            <p class="text-sm lg:text-base leading-[2.1] tracking-[0.04em] text-white/90 font-light">
+                                Traces of time are hidden in the details. The engraved ticket becomes a lasting memory of the journey.
+                            </p>
+
+                            <p class="text-sm leading-[1.9] text-white/75 font-light">
+                                細節中藏著時間的印記，這枚刻著車票的鋁片，
+                                是旅程的永久紀念。
+                            </p>
+
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -96,7 +193,7 @@
             scrollTrigger: {
                 trigger: "#story-final-master",
                 start: "top top",
-                end: "bottom top", // 結束時，容器剛好完全捲出螢幕
+                end: "bottom top",
                 scrub: 1,
                 pin: true
             }
@@ -111,27 +208,63 @@
             .to("#story-text-content", {
                 opacity: 0,
                 duration: 0.5
-            }, "-=0.5") 
+            }, "-=0.5")
             .to("#final-wall-img", {
-                scale: 30, // 放大到足以蓋住整個螢幕
+                scale: 12,
                 opacity: 0,
                 duration: 2,
                 ease: "power1.in"
             });
 
-        // --- 2. 針對最後一屏 6.png 的進入動畫 ---
-        // 當頁面捲動到 final-section 時觸發
-        gsap.from("#final-img-box, #final-text-box", {
+        // --- 2. 最後一幕：背景變暗、車票微放大、文字浮現 ---
+        const finalTl = gsap.timeline({
             scrollTrigger: {
                 trigger: "#final-section",
-                start: "top bottom", // 當 final-section 頂部進入視窗底部時
-                end: "top center",   // 到達中間時完成
+                start: "top top",
+                end: "bottom bottom",
                 scrub: 1
-            },
-            y: 100,
-            opacity: 0,
-            stagger: 0.2
+            }
         });
+
+        finalTl
+            .fromTo("#final-bg-img",
+                { scale: 1 },
+                { scale: 1.08, ease: "none" },
+                0
+            )
+            .fromTo("#final-ticket-img",
+                { scale: 0.92, opacity: 0.85 },
+                { scale: 1.02, opacity: 1, ease: "none" },
+                0
+            )
+            .fromTo("#final-text-left",
+                { x: -40, opacity: 0 },
+                { x: 0, opacity: 1, ease: "none" },
+                0.15
+            )
+            .fromTo("#final-text-right",
+                { x: 40, opacity: 0 },
+                { x: 0, opacity: 1, ease: "none" },
+                0.15
+            );
+
+        // 手機版文字淡入
+        gsap.fromTo(
+            "#final-ticket-wrap .md\\:hidden",
+            { opacity: 0, y: 20 },
+            {
+                opacity: 1,
+                y: 0,
+                stagger: 0.15,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: "#final-section",
+                    start: "top 70%",
+                    end: "top 35%",
+                    scrub: 1
+                }
+            }
+        );
     </script>
 </body>
 </html>
